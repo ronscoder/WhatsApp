@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  sender: MyString
+  text: MyString
+  datatime_static: 2016-04-04 18:50:53
+
+two:
+  sender: MyString
+  text: MyString
+  datatime_static: 2016-04-04 18:50:53

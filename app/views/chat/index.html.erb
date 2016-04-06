@@ -1,0 +1,104 @@
+<head>
+
+</head>
+<body>
+<div class = "container">
+  <br>
+  <%= Time.now %>
+<div class="left_container">
+    <!--<%= render 'chatform' %> -->
+<div class='list' ><h1>Chat list</h1>
+
+<table>
+  <thead>
+    <tr><th>Sessions</th></tr>
+  </thead>
+  <tbody>
+    <% @sessions.each do |session| %>
+    <tr>
+      <td> <%= session.name%></td>
+      <td><%= link_to 'Select', action: "select", id: session %></td>
+      <td>Delete</td></tr>
+    <%end%>
+  </tbody>
+  <tfoot>
+    <tr><td>
+      <%= form_for :new_session do |f| %>
+      <%= f.text_field :name, placeholder: 'Session name' %>
+      <%= f.submit 'Create new session' %>
+      <%end%>
+      </td></tr>
+  </tfoot>
+</table>
+<br>
+<table>
+  <thead>
+      <tr><th>
+      <strong>Session name</strong> selected
+      </th></tr>
+  </thead>
+  <tbody>
+  <% @chats.each do |chat| %>
+  <tr>
+    <td><%=chat.sender==nil ? 'You': chat.sender%></td>
+    <td><%=chat.text%></td>
+    <td><%=chat.datatime_static.strftime "%l:%M %p"%></td>
+    <td><%= link_to 'Delete', chat_path(chat), method:'delete'  %></td>
+  </tr>
+  <%end%>
+</tbody>
+</table>
+</div>
+
+<div class='chat_textbox_you'>
+<%= form_for :chattext do |f| %>
+<%= f.text_field :sender, class:'sender', value: 'You', disabled:true%>
+<%= f.time_select :datatime_static, default: Time.now%>
+<br>
+<%= f.text_field :text, class:'input_field'%>
+
+<%= f.submit 'Send'%>
+<%end%>
+</div>
+
+<div class='chat_textbox_you'>
+<%= form_for :chattext do |f| %>
+<%= f.text_field :sender, class: 'sender', value: 'Sender', style:'width:auto;'%>
+<%= f.time_select :datatime_static, default: Time.now%>
+<br>
+<%= f.text_field :text, class:'input_field'%>
+<%= f.submit 'Accept'%>
+<%end%>
+</div>
+
+
+</div>
+
+
+<div class="menu">
+  <button id="btnEdit">Edit</button>
+</div>
+<div class="chat">
+
+  <% @chats.each { |chat|
+    if chat.sender == nil %>
+
+      <div class="bubble you"> <%= chat.text %>
+      <div class="time"><%=chat.datatime_static.strftime "%l:%M %p"%><span class="tick">&#10003;</span></div>
+      <%= link_to '-', chat_path(chat), method:'delete',class:'badge_delete'%>
+      </div>
+    <% else %>
+      <div class="bubble me">
+        <%if chat.sender.to_s.downcase != 'sender' %>
+        <div class="sender"><%= chat.sender%></div>
+        <%end%>
+        <%= chat.text %>
+      <div class="time"><%= chat.datatime_static.strftime "%l:%M %p"%></div>
+      <%= link_to '-', chat_path(chat), method:'delete',class:'badge_delete'%>
+      </div>
+  <%end%>
+
+  <%}%>
+</div>
+</div>
+</body>

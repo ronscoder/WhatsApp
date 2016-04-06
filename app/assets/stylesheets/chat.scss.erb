@@ -1,0 +1,146 @@
+// Place all the styles related to the chat controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+body{
+font-family: sans-serif;
+font-size: 14px;
+
+}
+
+.disabled{
+  disabled:true;
+}
+.badge_delete{
+  background-color: #DD00AD;
+  padding: 10px;
+}
+.menu {
+    float: right;
+    margin-right: 100px;
+    width: 350px;
+    height: 20px;
+    padding: 15px;
+  }
+.left_container{
+  float: left;
+  padding: 10px;
+}
+.list{
+
+}
+.input_field{
+  width:300px;height:2em;background-color:#FFF8DC;
+}
+.form_bubble{
+  border-radius: 5px;
+  box-shadow: 0 0 6px #B2B2B2;
+  display: inline-block;
+
+  position: relative;
+  vertical-align: top;
+  font-family: sans-serif;
+  font-size: 14px;
+}
+.container{
+  width: 90%;
+  height: 90%;
+  margin: auto;
+}
+.chat_textbox_you{
+  margin-top:50px;
+}
+.form{
+  margin-left: 30px;
+  border: 1px solid red;
+  width: 250px;
+  float: left;
+  padding: 10px;
+
+}
+.label{
+  margin: 10px;
+}
+.chat {
+    float: right;
+    margin-right: 100px;
+    width: 350px;
+    height: 500px;
+    border: 1px solid red;
+    padding: 15px;
+    background-image: url(<%= asset_path 'bg.jpg' %>);
+}
+
+.bubble{
+    border-radius: 5px;
+    box-shadow: 0 0 6px #B2B2B2;
+    display: inline-block;
+
+    position: relative;
+    vertical-align: top;
+    font-family: sans-serif;
+    font-size: 14px;
+
+}
+
+.bubble::before {
+    background-color: #F2F2F2;
+    content: "\00a0";
+    display: block;
+    height: 16px;
+    position: absolute;;;
+    top: 11px;
+    transform:             rotate( 29deg ) skew( -35deg );
+        -moz-transform:    rotate( 29deg ) skew( -35deg );
+        -ms-transform:     rotate( 29deg ) skew( -35deg );
+        -o-transform:      rotate( 29deg ) skew( -35deg );
+        -webkit-transform: rotate( 29deg ) skew( -35deg );
+    width:  20px;
+}
+
+.me {
+    float: left;
+    clear: both;
+    margin: 5px 45px 5px 20px;
+    background-color: #F2F2F2;
+    padding: 5px 14px;;
+}
+
+.me::before {
+    box-shadow: -2px 2px 2px 0 rgba( 178, 178, 178, .4 );
+    left: -9px;
+    background-color: #F2F2F2;
+
+}
+
+.you {
+    float: right;
+    clear: both;
+    margin: 5px 20px 5px 45px;
+    background-color: #F1F7AB;
+    padding: 5px 14px;
+
+}
+
+.you::before {
+    box-shadow: 2px -2px 2px 0 rgba( 278, 178, 178, .4 );
+    right: -9px;
+    background-color: #F1F7AB;
+}
+.time{
+  color: grey;
+  font-weight: lighter;
+  font-family: sans-serif;
+  font-size: 10px;
+  text-align: right;
+}
+.tick{
+  color: #003FFF;
+}
+
+.sender{
+  color: green;
+  font-weight: bold;
+  font-family: sans-serif;
+  font-size: 10px;
+  padding-bottom: 4px;
+}

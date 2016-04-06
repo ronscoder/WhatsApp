@@ -1,0 +1,11 @@
+<div class='form'>
+<%= form_for :chattext do |f| %>
+<p>
+<%= f.label :sender, class: 'label sender' %>
+<%= f.text_field :sender, class: 'sender', style:'float:right;' %>
+<p>
+<%= f.label :text, class: 'label form_bubble'%>
+<%= f.text_field :text  , class: 'form_bubble input_field'%>
+<%= f.submit%>
+<%end%>
+</div>
